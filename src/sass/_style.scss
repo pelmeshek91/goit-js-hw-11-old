@@ -1,0 +1,81 @@
+body {
+  padding-top: 50px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-top: 20px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.photo-card {
+  border: 1px solid #eeeeee;
+  &:hover,
+  :focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+img {
+  display: block;
+  height: 75%;
+  min-width: 100%;
+}
+.info {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.search-form {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(45, 155, 155);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+}
+form > button {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  color: rgb(45, 155, 155);
+  background-color: white;
+  font-size: 18px;
+  border-radius: 4px;
+}
+input {
+  border-radius: 4px;
+  color: rgb(45, 155, 155);
+  font-size: 18px;
+}
+.load-more {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  border-radius: 4px;
+  height: 40px;
+  width: 130px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(45, 155, 155);
+  color: white;
+  background-color: rgb(45, 155, 155);
+}
