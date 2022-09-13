@@ -30,7 +30,6 @@ function searchImages(e) {
 }
 
 function createMarkup(arr) {
-  console.log(arr);
   return arr.reduce(
     (
       acc,
