@@ -68,11 +68,11 @@ function setMarkup(response) {
     throw new Error();
   }
   loadMoreBtn.style.display = 'flex';
-  loadMoreBtn.removeAttribute('hidden');
+
   imageList.insertAdjacentHTML('beforeend', createMarkup(response.data.hits));
   if (response.data.hits.length < 40) {
     loadMoreBtn.style.display = 'none';
-    loadMoreBtn.setAttribute('hidden', 'true');
+
     Notify.failure(
       "We're sorry, but you've reached the end of search results."
     );
