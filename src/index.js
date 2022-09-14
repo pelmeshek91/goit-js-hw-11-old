@@ -66,13 +66,14 @@ function createMarkup(arr) {
 }
 
 function setMarkup(response) {
-  if (response.data.hits.length === 0) {
+  const { hits, totalHits } = response.data;
+  if (hits.length === 0) {
     loadMoreBtn.setAttribute('hidden', 'true');
     throw new Error();
   }
   loadMoreBtn.removeAttribute('hidden');
   imageList.insertAdjacentHTML('beforeend', createMarkup(response.data.hits));
-  let count = Math.floor(response.data.totalHits / response.data.hits.length);
+  let count = Math.floor(totalHits / hits.length);
   if (count === page && page > 1) {
     loadMoreBtn.setAttribute('hidden', 'true');
     Notify.failure(
