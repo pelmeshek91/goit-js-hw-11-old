@@ -12,6 +12,8 @@ let inputValue = '';
 
 searchInput.addEventListener('submit', searchImages);
 
+// fetchImages().then(resp => console.log(resp));
+
 function searchImages(e) {
   e.preventDefault();
   inputValue = e.currentTarget.elements.searchQuery.value.trim();
@@ -30,6 +32,7 @@ function searchImages(e) {
 }
 
 function createMarkup(arr) {
+  console.log(arr);
   return arr.reduce(
     (
       acc,
@@ -67,15 +70,17 @@ function setMarkup(response) {
     loadMoreBtn.setAttribute('hidden', 'true');
     throw new Error();
   }
-  loadMoreBtn.style.display = 'flex';
-
+  loadMoreBtn.removeAttribute('hidden');
   imageList.insertAdjacentHTML('beforeend', createMarkup(response.data.hits));
-  if (response.data.hits.length < 40) {
-    loadMoreBtn.style.display = 'none';
-
+  let count = Math.floor(response.data.totalHits / response.data.hits.length);
+  if (count === page && page > 1) {
+    loadMoreBtn.setAttribute('hidden', 'true');
     Notify.failure(
       "We're sorry, but you've reached the end of search results."
     );
+  }
+  if (count === page) {
+    loadMoreBtn.setAttribute('hidden', 'true');
   }
 }
 
